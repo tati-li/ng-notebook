@@ -1,0 +1,30 @@
+@media screen and (min-width: 240px) and (max-width: 999px) {
+
+  .sidebar {
+    top: 0;
+    z-index: 4;
+    width: 70%;
+    position: fixed;
+    /* This trasform moves the drawer off canvas. */
+    transform: translate(1000px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform .5s cubic-bezier(0, 0, 0.2, 1);
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+
+    &.open {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+
+    .categories-tree {
+
+      li {
+        border-color: #696D5B;
+      }
+    }
+
+  }
+
+}

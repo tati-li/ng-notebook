@@ -1,0 +1,18 @@
+<div class="categories-tree">
+    <div class="categories-title-wrapper">
+        <span class="categories-title">Categories</span>
+    </div>
+    <ul class="tree">
+        <li ng-if="ctc.hasParent"
+            ng-click="ctc.showParents(ctc.parentId)"
+            class="go-up">
+            <i class="pull-right glyphicon glyphicon-chevron-up"></i>
+        </li>
+        <li ng-repeat="category in ctc.categories">
+            <a ng-click="ctc.filterBySelectedCategory(category.path, category.name)">{{category.name}}</a>
+            <i ng-if="category.hasChildren"
+               ng-click="ctc.showChildren(category.id)"
+               class="pull-right glyphicon glyphicon-chevron-right"></i>
+        </li>
+    </ul>
+</div>

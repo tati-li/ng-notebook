@@ -1,0 +1,33 @@
+html {
+  min-height: 100%;
+  height: auto !important;
+}
+
+body {
+  min-height: 100%;
+  height: auto !important;
+  overflow-x: hidden;
+  background: #272b30;
+
+  &.body-overlay {
+    overflow: hidden;
+  }
+}
+
+// Main container styles
+main {
+  width: 82%;
+  max-width: 1300px;
+  min-height: 100%;
+  margin: 0 auto;
+  height: auto !important;
+  background: #3a3f44 !important;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 1px) and (max-width: 999px) {
+  main {
+    width:   92%;
+    padding: 1%;
+  }
+}

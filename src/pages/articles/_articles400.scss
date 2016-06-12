@@ -1,0 +1,63 @@
+@media screen and (min-width: 400px) {
+
+  .articles-preview {
+
+    .articles-date {
+      font-size: .9em;
+    }
+
+    .articles-title {
+      padding-left: 15px;
+    }
+
+    .articles-content {
+      padding:    15px 0;
+      font-size:  1.23em;
+      max-height: 111px;
+      text-indent: 15px;
+      line-height: 1.5;
+    }
+
+    .articles-categories {
+
+      .articles-categories-title {
+
+      }
+
+      .articles-category {
+
+        .articles-category-name {
+
+        }
+
+      }
+
+    }
+
+    .articles-tags {
+
+
+      .articles-tags-title {
+
+      }
+
+      .articles-tag {
+
+        .articles-tag-name {
+
+        }
+        .articles-tag-name:hover {
+
+        }
+
+      }
+
+    }
+
+    .delete-icon {
+      width: 28px;
+    }
+
+  }
+
+}

@@ -1,0 +1,23 @@
+.content {
+
+  width: 100%;
+  padding: 0 0 150px;
+  position: relative;
+  overflow-x: hidden;
+
+  .view {
+    overflow-x: hidden;
+  }
+
+}
+.content:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+@import './content400';
+@import './content1000';
+
+@import '../sidebar/sidebar';
+@import '../actions-buttons/actions-buttons';

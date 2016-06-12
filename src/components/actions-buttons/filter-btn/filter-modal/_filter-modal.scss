@@ -1,0 +1,62 @@
+.filter-modal {
+
+  //
+  .filter-option {
+    height: auto;
+    text-align: center;
+  }
+
+  //
+  .filter-types {
+
+    display: table;
+    margin:  0 auto;
+
+    .filter-types__select {
+
+    }
+
+  }
+
+  //
+  .filter-vals, .filter-cond {
+
+    h3 {
+      display: inline;
+    }
+
+  }
+
+  .filter-cond {
+
+    .form-control {
+      width:  auto;
+      margin: 0 auto;
+    }
+  }
+
+  .filter-vals {
+
+    div {
+      margin: 0 auto;
+
+      span {
+        margin: 5px 0;
+      }
+
+      .form-control {
+        display: inline-block;
+        width:  auto;
+        margin: 0 auto;
+      }
+    }
+  }
+
+    //
+  .filter-btns {
+    margin:     10px auto;
+    text-align: center;
+
+  }
+
+}

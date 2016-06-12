@@ -1,0 +1,78 @@
+.export-modal {
+
+  //
+  .export-option {
+    height: auto;
+    text-align: center;
+  }
+
+  //
+  .export-as {
+
+    display: table;
+    margin:  0 auto;
+
+    .export-as-variant {
+
+      display: table-row;
+      margin:  0 auto;
+
+      .export-as-label, .export-as-radio {
+        display: table-cell
+      }
+
+      .export-as-label label {
+
+      }
+
+      .export-as-radio input {
+
+      }
+
+    }
+
+  }
+
+  //
+  .export-archive, .export-save-to {
+
+    h3 {
+      display: inline;
+    }
+
+    select {
+      width:       40%;
+      margin-left: 2%;
+      display:     inline;
+    }
+  }
+
+  //
+  .export-save-to {
+
+    .export-icons-wrapper {
+
+      label {
+        max-width: 10%;
+      }
+
+      &.save-disabled {
+
+        img {
+          filter:         grayscale(100%);
+          -webkit-filter: grayscale(100%);
+        }
+
+      }
+
+    }
+  }
+
+  //
+  .export-btns {
+    margin:     10px auto;
+    text-align: center;
+
+  }
+
+}

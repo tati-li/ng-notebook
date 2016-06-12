@@ -1,0 +1,13 @@
+// components styles
+@import '../components/calendar/calendar';
+@import '../components/categories-tree/categories-tree';
+@import '../components/content/content';
+@import '../components/header/header';
+@import '../components/tags-list-typeahead/tags-list-typeahead';
+@import '../components/edit-tag-modal/edit-tag-modal';
+
+// pages styles
+@import '../pages/article/article';
+@import '../pages/articles/articles';
+@import '../pages/create/create';
+@import '../pages/login/login';

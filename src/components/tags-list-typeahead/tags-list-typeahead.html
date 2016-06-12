@@ -1,0 +1,47 @@
+<div class="selected-tags">
+    <span class="selected-tags-title">Tags: </span>
+    <div class="selected-tag"
+         ng-repeat="tag in selectedTags"
+         ng-click="deleteTag(tag)">
+        <span>{{tag}}</span>
+    </div>
+</div>
+
+<div class="tags-selection-controls">
+
+    <ng-form role="form" novalidate="novalidate" name="TagInputForm" ng-submit="CreateTag($event)">
+        <div ng-class="{'has-error' : (TagInputForm.$submitted && TagInputForm.nameTag.$invalid)}">
+            <input type="text"
+                   class="form-control tags-input tags-selection-control"
+                   ng-pattern="/^[a-zA-Z0-9\_\-\.]+$/"
+                   ng-model="typedTag"
+                   ng-focus="isListDisplayed = true"
+                   ng-keyup="onKeyUpFn($event.which)"
+                   name="nameTag"
+                    />
+            <span class="action-tag glyphicon glyphicon-plus form-control-feedback"
+                  ng-click="CreateTag()"
+                  ng-if="isNewTag"></span>
+        </div>
+    </ng-form>
+
+    <div class="tags-list tags-selection-control well" ng-show="isListDisplayed && !isListEmpty">
+        <div class="tag-item-hold tags-selection-control row"
+             ng-class="{ 'hovered-tag' : hoveredTagIndex == $index }"
+             ng-repeat="tag in getNotSelected()"
+             >
+            <span class="tag-item col-md-9"
+                  ng-click="addTag(tag)">{{tag}}</span>
+            <span class="pull-right">
+                <i ng-click="editTag(tag)"
+                   ng-if="manageable"
+                   class="action-tag glyphicon glyphicon-edit"></i>
+                <i ng-click="removeTag(tag)"
+                   ng-if="manageable"
+                   class="action-tag glyphicon glyphicon-remove"></i>
+            </span>
+
+        </div>
+    </div>
+
+</div>

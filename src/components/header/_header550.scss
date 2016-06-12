@@ -1,0 +1,28 @@
+@media screen and (min-width: 550px) {
+  header {
+
+    .header {
+
+      height: 70px;
+
+      .home-link {
+
+
+        .home-icon {
+          width: 70px;
+          margin: 0;
+        }
+      }
+
+      .header__menu {
+
+        top: 0;
+
+        svg {
+          width: 55px;
+        }
+      }
+
+    }
+  }
+}

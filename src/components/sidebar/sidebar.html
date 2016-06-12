@@ -1,0 +1,27 @@
+<aside class="sidebar well" ng-class="{ 'open': isSidebarOpened }">
+
+    <form class="search-wrapper form-group"
+          autocomplete="off"
+          novalidate="novalidate"
+          name="SearchForm"
+          ng-submit="runSearch($event)"
+    >
+        <input class="form-control"
+               type="search"
+               placeholder="Search"
+               ng-model="searchText"
+               required="required"
+        />
+        <div class=search-icon-wrapper>
+            <img src="/img/search-article.png" />
+        </div>
+
+    </form>
+
+    <categories-tree selected-category="selectedCategory"></categories-tree>
+
+    <tags-list-typeahead manageable="true"
+                         redirect-on-select="true"
+                         selected-tags="selectedTags"></tags-list-typeahead>
+
+</aside>

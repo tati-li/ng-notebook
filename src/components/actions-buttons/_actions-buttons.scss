@@ -1,0 +1,49 @@
+.action-btns {
+  position: fixed;
+  z-index: 1;
+  padding: 15px 5px 0;
+  border-radius: 15px 0 0 15px;
+  width: 65px;
+  right: 0;
+  bottom: 5%;
+
+  button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  *:first-child, *:last-child {
+    margin-bottom: 0;
+  }
+
+  .action-icon {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+
+  .export-icon {
+    text-align: center;
+    max-width: 65px;
+    max-height: 65px;
+    margin-top: 5px;
+  }
+
+  // popover fixes
+  .popover {
+    left: -231px!important;
+    z-index: 2;
+  }
+
+}
+
+@import "filter-btn/filter-btn";
+
+@import './actions-buttons1-400';
+@import './actions-buttons1000';

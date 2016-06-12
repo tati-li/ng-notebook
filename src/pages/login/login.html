@@ -1,0 +1,80 @@
+<div class="jumbotron vertical-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-centered">
+                <form class="form-login" role="form" novalidate name="LoginForm" ng-submit="loginCtrl.loginUser($event)">
+                    <h2 class="text-primary">LogIn to your Account</h2>
+
+                    <div class="control-wrapper">
+                        <div class="control-left-label"
+                             ng-class="{ 'active': loginCtrl.isInputFocused('username') }"></div>
+                        <div class="control-container"
+                             ng-class="{ 'active': loginCtrl.isInputFocused('username') }">
+                            <input type="text"
+                                   ng-model="loginCtrl.user.username"
+                                   autofocus="autofocus"
+                                   class="control__input form-control"
+                                   placeholder="Username"
+                                   tabindex="1"
+                                   ng-focus="loginCtrl.isInputFocused('username')"
+                                   name="username"
+                                   required="required"
+                            />
+                            <!--<div ng-messages="LoginForm.$submitted && LoginForm.email.$error">-->
+                                <!--<p class="text-danger" ng-message="required">Email {{login.errors.required}}, [[ 'login.errors.required' | i18n ]]</p>-->
+                                <!--<p class="text-danger" ng-message="email">Email {{login.errors.email}}, [[ 'login.errors.email' | i18n ]]</p>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+
+                    <div class="control-wrapper">
+                        <div class="control-left-label"
+                             ng-class="{ 'active': loginCtrl.isInputFocused('password') }">
+                        </div>
+                        <div class="control-container"
+                             ng-class="{ 'active': loginCtrl.isInputFocused('password') }">
+                            <input
+                                    type="password"
+                                    ng-model="loginCtrl.user.password"
+                                    ng-minlength="6"
+                                    tabindex="2"
+                                    class="control__input form-control"
+                                    placeholder="Password"
+                                    ng-focus="loginCtrl.isInputFocused('password')"
+                                    name="password"
+                                    required="required"
+                            />
+                            <!--<div ng-messages="LoginForm.$submitted && LoginForm.password.$error">-->
+                                <!--<p class="text-danger" ng-message="required">Password {{login.errors.required}}, [[ 'login.errors.required' | i18n ]]</p>-->
+                                <!--<p class="text-danger" ng-message="minlength">Password {{login.errors.minlength}}, [[ 'login.errors.minlength' | i18n ]]</p>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+
+                    <div class="control-wrapper">
+                        <div class="bg-danger">
+                            <p class="text-danger">[[ loginCtrl.serverErrorMessage ]]</p>
+                        </div>
+                        <!--<div class="remember-me">-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value="">-->
+                                    <!--<span class="cr">-->
+                                        <!--<i class="cr-icon glyphicon glyphicon-ok"></i>-->
+                                    <!--</span>-->
+                                    <!--Remember Me-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <button class="btn btn-lg btn-primary submit" tabindex="3" type="submit">
+                            <span class="text">
+                                Login <i class="glyphicon glyphicon-chevron-right arrow-next-icon"></i>
+                            </span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

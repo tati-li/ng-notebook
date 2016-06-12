@@ -1,0 +1,27 @@
+<div class="edit-tag-modal" edit-tag-modal>
+
+    <form class="form-tag" role="form" novalidate="novalidate" name="EditTagForm" ng-submit="editTagModalCtrl.EditTag($event)">
+
+        <div class="edit-tag-wrap">
+            <input type="text"
+                   ng-model="editTagModalCtrl.tag"
+                   name="NameInput"
+                   required
+                   maxlength="256"
+                   ng-pattern="/^[a-zA-Zà-ÿÀ-ß0-9\_\-\.]+$/"
+                   class="form-control" />
+            <div ng-messages="editTagModalCtrl.EditTagForm.$submitted && editTagModalCtrl.EditTagForm.NameInput.$error">
+                <p class="text-danger" ng-message="required">{{editTagModalCtrl.tagErrors.name.required}}</p>
+                <p class="text-danger" ng-message="pattern">{{editTagModalCtrl.tagErrors.name.pattern}}</p>
+                <p class="text-danger" ng-message="unique">{{editTagModalCtrl.tagErrors.name.unique}}</p>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="export-btns">
+            <button class="btn btn-danger" type="button" ng-click="editTagModalCtrl.cancel()">Cancel</button>
+            <button class="btn btn-success" type="submit">Edit</button>
+        </div>
+    </form>
+</div>

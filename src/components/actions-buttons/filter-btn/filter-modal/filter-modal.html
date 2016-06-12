@@ -1,0 +1,94 @@
+<div class="filter-modal" filter-modal>
+
+    <div class="filter-option filter-types">
+
+        <h3>Filter by:</h3>
+
+        <div class="filter-types__select">
+            <select
+                class="form-control"
+                ng-model="filterModalCtrl.filterData.type"
+                ng-options="filterModalCtrl.filterType.type as filterModalCtrl.filterType.label for filterModalCtrl.filterType in filterModalCtrl.filterTypes"
+                name="filterType"
+                ></select>
+        </div>
+
+    </div>
+
+    <hr ng-if="filterModalCtrl.filterData.type"/>
+
+    <div class="filter-option filter-cond" ng-if="filterModalCtrl.filterData.type">
+        <select
+                ng-disabled="!filterModalCtrl.filterData.type"
+                class="form-control"
+                ng-model="filterModalCtrl.filterData.cond"
+                ng-options="filterModalCtrl.filterCond.cond as filterModalCtrl.filterCond.label for filterModalCtrl.filterCond in filterModalCtrl.filterConds[filterModalCtrl.filterData.type]"
+                ></select>
+    </div>
+
+    <hr ng-if="filterModalCtrl.filterData.cond"/>
+
+    <div class="filter-option filter-vals" ng-if="filterModalCtrl.filterData.cond">
+
+        <h3>Condition:</h3>
+
+        <div class="filter-val" ng-if="filterModalCtrl.filterData.cond && filterModalCtrl.filterData.type === 'string'">
+            <input type="text"
+                   class="form-control"
+                   name="filterValText"
+                   ng-model="filterModalCtrl.filterData.value"
+            />
+        </div>
+
+        <div class="filter-val" ng-if="filterModalCtrl.filterData.cond && filterModalCtrl.filterData.type === 'date'">
+            <div ng-if="['before', 'before or at', 'before and at', 'at', 'at or after', 'at and after', 'after'].indexOf(filterModalCtrl.filterData.cond) !== -1">
+                <input type="date"
+                   class="form-control"
+                   name="filterValDate"
+                   ng-model="filterModalCtrl.filterData.value"
+                />
+            </div>
+            <div ng-if="['between'].indexOf(filterModalCtrl.filterData.cond) !== -1">
+                <label for="filterValDateStart">Start</label>
+                <input type="date"
+                       class="form-control"
+                       name="filterValDateStart"
+                       id="filterValDateStart"
+                       ng-model="filterModalCtrl.dateBetween.start"
+                       max="{{
+                            filterModalCtrl.moment(filterModalCtrl.moment().format('YYYY-MM-DD')).isAfter(filterModalCtrl.dateBetween.end)
+                                ? filterModalCtrl.moment(filterModalCtrl.dateBetween.end).format('YYYY-MM-DD')
+                                : filterModalCtrl.moment().format('YYYY-MM-DD') }}
+                       "
+                       ng-change="filterModalCtrl.setDateVal($event, 'start')"
+                />
+                <label for="filterValDateEnd">End</label>
+                <input type="date"
+                       class="form-control"
+                       id="filterValDateEnd"
+                       name="filterValDateEnd"
+                       ng-model="filterModalCtrl.dateBetween.end"
+                       ng-change="filterModalCtrl.setDateVal($event, 'end')"
+                       min="{{ filterModalCtrl.dateBetween.start ? filterModalCtrl.moment(filterModalCtrl.dateBetween.start).format('YYYY-MM-DD') : '2012-12-12' }}"
+                       max="{{ filterModalCtrl.moment().format('YYYY-MM-DD') }}"
+                />
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr/>
+
+    <div class="filter-btns">
+        <button class="btn btn-success"
+                ng-if="filterModalCtrl.filterData.value">
+            Filter
+        </button>
+        <button class="btn btn-danger"
+                ng-click="filterModalCtrl.cancel()">
+            Cancel
+        </button>
+    </div>
+
+</div>

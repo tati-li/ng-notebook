@@ -1,0 +1,54 @@
+<div>
+    <article class="articles-preview well" ng-repeat="article in articlesCtrl.articles">
+
+        <!-- @todo: format date dd-mm-yyyy hh:mm [local time] -->
+
+        <div class="article-preview-header">
+            <h5 class="articles-date">{{ article.createdAt | dateFormat: "DD.MM.YYYY HH:mm" }}</h5>
+
+            <div class="articles-export" title="Export article to...">
+                <a
+                    ng-popover="export-icons/export-icons.html"
+                    placement="bottom"
+                >
+                    <img src="/img/export-article.png" />
+                </a>
+            </div>
+
+            <div class="delete-icon"
+                ng-click="articlesCtrl.deleteArticle(article._id)"
+                title="Delete article"
+            >
+               <img class="delete-img" src="/img/delete-article.png" />
+            </div>
+        </div>
+
+        <h3 class="articles-title">
+            <a href="/article/{{article._id}}">{{article.title}}</a>
+        </h3>
+
+        <p class="articles-content" ng-bind-html="article.content"></p>
+
+        <hr/>
+
+        <div class="articles-categories" ng-show="article.category">
+            <div class="articles-categories-title">Category:</div>
+            <div class="articles-category">
+                <a href="" class="articles-category-name">
+                    <span>{{article.category.name}}</span>
+                </a>
+                <!--<span class="articles-category-separator glyphicon glyphicon-chevron-right"></span>-->
+            </div>
+        </div>
+
+        <div class="articles-tags" ng-show="article.tags.length">
+            <div class="articles-tags-title">Tags:</div>
+            <div class="articles-tag" ng-repeat="tag in article.tags">
+                <a href="" class="articles-tag-name">
+                    <span>{{tag}}</span>
+                </a>
+            </div>
+        </div>
+
+    </article>
+</div>

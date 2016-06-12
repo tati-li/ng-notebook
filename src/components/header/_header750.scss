@@ -1,0 +1,28 @@
+@media screen and (min-width: 750px) {
+  header {
+
+    .header {
+
+      height: 120px;
+
+      .home-link {
+        width: 25%;
+        .left-book {
+          display: inline-block;
+          width: 120px;
+          max-width: 100%;
+        }
+
+        .home-icon {
+          display: none;
+        }
+      }
+
+      .header__menu {
+        top: 25%;
+      }
+
+
+    }
+  }
+}

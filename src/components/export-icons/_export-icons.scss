@@ -1,0 +1,29 @@
+.export-icons {
+
+  display:     inline-block;
+  text-align:  center;
+
+  .article-icon {
+    width:   25%;
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .export-txt-icon {
+
+  }
+
+  .export-docx-icon {
+
+  }
+
+  .export-pdf-icon {
+
+  }
+
+}
+
+@import '../export-modal/export-modal';

@@ -1,0 +1,219 @@
+$loginIndents: (
+  bottomMin: 25px,
+  bottomMax: 35px,
+  topMin: 25px,
+  topMax: 35px,
+  left: 25px,
+  right: 25px
+);
+
+$colors: (
+  main:   white,
+  active: #f0f0f0,
+  submit: #2ecc71,
+  info:   #2c94da
+);
+
+.jumbotron.vertical-center {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
+}
+
+.vertical-center {
+  min-height: 100%; /* Fallback for vh unit */
+  min-height: 100vh;
+  /* You might also want to use
+                         'height' property instead.
+
+                         Note that for percentage values of
+                         'height' or 'min-height' properties,
+                         the 'height' of the parent element
+                         should be specified explicitly.
+
+                         In this case the parent of '.vertical-center'
+                         is the <body> element */
+
+  /* Make it a flex container */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  /* Align the bootstrap's container vertically */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  /* In legacy web browsers such as Firefox 9
+     we need to specify the width of the flex container */
+  width: 100%;
+
+  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+     hence the bootstrap's container won't be aligned to the center anymore.
+
+     Therefore, we should use the following declarations to get it centered again */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.form-login {
+
+  background-color: map-get($colors, main);
+  padding:          map-get($loginIndents, topMin) 0;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: map-get($loginIndents, bottomMin);
+    padding-left: map-get($loginIndents, left);
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  .bg-danger {
+    padding: 0 5px;
+    display: none;
+  }
+
+  // Each control wrapper
+  .control-wrapper {
+    display: table;
+    width: 100%;
+
+    .control-left-label {
+      float: none;
+      display: table-cell;
+      width: 1%;
+      background-color: map-get($colors, main);
+    }
+
+    .control-left-label.active {
+      background-color: map-get($colors, info);
+    }
+
+    .control-container {
+      float: none;
+      display: table-cell;
+      width: 99%;
+      margin: 0 0 map-get($loginIndents, left);
+      border-top: map-get($loginIndents, topMin);
+      border-right: 20px;
+      border-bottom: map-get($loginIndents, bottomMin);
+      border-left: 15px;
+      border-style: solid;
+      border-color: map-get($colors, main);
+
+      input {
+        border-radius: 0;
+      }
+    }
+
+    .control-container.active {
+      border-color: map-get($colors, active);
+    }
+
+    // Remember Me checkbox
+    .remember-me {
+      float: left;
+      margin-top: 15px;
+      margin-left: 25px;
+
+      .checkbox {
+
+        border: none;
+        border-radius: 0;
+
+        input {
+          display: none;
+        }
+
+        label {
+          padding-left: 0;
+          color: #7C7C7C;
+          font-size: 1.75em;
+
+          input[type="checkbox"] + .cr > .cr-icon {
+            opacity: 0;
+          }
+
+          input[type="checkbox"]:checked + .cr > .cr-icon {
+            opacity: 1;
+          }
+
+          input[type="checkbox"] + .cr {
+            position: relative;
+            display: inline-block;
+            border: 1px solid map-get($colors, info);
+            width: 1.3em;
+            height: 1.3em;
+            float: left;
+            margin-right: .5em;
+          }
+
+          input[type="checkbox"]:checked + .cr {
+            background-color: map-get($colors, info);
+            color: map-get($colors, main);
+          }
+
+        }
+
+      }
+
+    }
+
+    // Submit button
+    .submit {
+      background-color: map-get($colors, submit);
+      border-radius: 0;
+      border: none;
+      margin-right: 20px;
+      float: right;
+      display: block;
+      margin-top: 18px;
+      width: 85px;
+      height: 38px;
+      vertical-align: middle;
+
+      .text {
+        font-size: 16px;
+        margin-left: -2px;
+      }
+
+      .arrow-next-icon {
+        top: 1.5px;
+      }
+
+    }
+
+    .submit:hover {
+      background: #2ecc71;
+    }
+
+  }
+
+}
+
+.btn span.glyphicon {
+  opacity: 0;
+}
+
+.btn.active span.glyphicon {
+  opacity: 1;
+}

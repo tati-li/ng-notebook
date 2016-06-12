@@ -1,0 +1,84 @@
+<article class="article-container well" ng-controller="EditCtrl as editCtrl">
+    <form class="form-article" role="form" novalidate name="EditArticleForm" ng-submit="editCtrl.EditArticle($event)">
+        <div class="article-date">{{ articleCtrl.article.createdAt | dateFormat: "DD.MM.YYYY HH:mm" }}</div>
+        <h3 class="article-title" ng-hide="editCtrl.editEnabled">
+            <span>{{articleCtrl.article.title}}</span>
+        </h3>
+        <div ng-show="editCtrl.editEnabled" class="article-edit-container">
+            <input type="text" ng-model="editCtrl.editedTitle" name="TitleInput" required ng-maxlength="256" class="form-control" />
+            <div ng-messages="editCtrl.EditArticleForm.$submitted && editCtrl.EditArticleForm.TitleInput.$error">
+                <p class="text-danger" ng-message="required">Title {{editCtrl.articleErrors.title.required}}</p>
+                <p class="text-danger" ng-message="maxlength">Title {{editCtrl.articleErrors.title.maxlength}}</p>
+            </div>
+        </div>
+
+        <div class="article-content" ng-hide="editCtrl.editEnabled">
+            <div ng-bind-html="articleCtrl.preparedContent"></div>
+        </div>
+        <div ng-show="editCtrl.editEnabled" class="article-edit-container">
+                <textarea
+                        type="text"
+                        ng-model="editCtrl.editedContent"
+                        name="ContentArea"
+                        ui-tinymce
+                        class="form-control"
+                        required ></textarea>
+            <div ng-messages="editCtrl.EditArticleForm.$submitted && editCtrl.EditArticleForm.ContentArea.$error">
+                <p class="text-danger" ng-message="required">Content {{editCtrl.articleErrors.content.required}}</p>
+            </div>
+        </div>
+
+        <div class="article-categories" ng-hide="editCtrl.editEnabled || !articleCtrl.article.category">
+            <div class="article-categories-title">Category:</div>
+            <div class="article-category">
+                <a href="#" class="article-category-name">
+                    <span>{{articleCtrl.article.category}}</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="article-tags" ng-hide="editCtrl.editEnabled || !articleCtrl.article.tags.length">
+            <div class="article-tags-title" >Tags:</div>
+            <div class="article-tag" ng-repeat="tag in articleCtrl.article.tags" >
+                <a href="#" class="article-tag-name">
+                    <span>{{tag}}</span>
+                </a>
+            </div>
+        </div>
+        <div ng-click="articleCtrl.share(articleCtrl.article)">SHARE</div>
+        <!-- Your share button code -->
+        <div class="fb-share-button"
+             data-href="/"
+             data-layout="button_count">share
+        </div>
+        <tags-list-typeahead selected-tags="editedTags" ng-show="editCtrl.editEnabled"></tags-list-typeahead>
+        <div class="edit-btns well">
+            <a class="article-icon edit-icon"
+               href=""
+               ng-click="editCtrl.enableArticleEditor(articleCtrl.article)"
+               title="Edit article"
+               ng-show="!editCtrl.editEnabled">
+                <img src="/img/edit-article.png" />
+            </a>
+            <a class="article-icon delete-icon"
+               href=""
+               ng-click="editCtrl.deleteArticle()"
+               title="Delete article"
+               ng-show="!editCtrl.editEnabled">
+                <img src="/img/delete-article.png" />
+            </a>
+            <button class="article-icon save-icon"
+               type="submit"
+               title="Save article"
+               ng-hide="!editCtrl.editEnabled">
+                <img src="/img/save-article.png" />
+            </button>
+            <button class="article-icon cancel-icon"
+               ng-click="editCtrl.cancelArticleChanges()"
+               title="Cancel"
+               ng-hide="!editCtrl.editEnabled">
+                <img src="/img/cancel-edit-article.png" />
+            </button>
+        </div>
+    </form>
+</article>

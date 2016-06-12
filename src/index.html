@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="ngNotebook">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cousine:400,700,400italic,700italic&subset=cyrillic,cyrillic-ext,latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&subset=cyrillic,cyrillic-ext,latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans|Istok+Web|Arimo|PT+Sans+Caption|Roboto&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
+    <script src="/libs.js"></script>
+    <script src="/app.js"></script>
+
+</head>
+<body ng-class="{ 'body-overlay': isSidebarOpened }">
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '599079656909885',
+            xfbml      : true,
+            version    : 'v2.5'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+    <header class="navbar navbar-default"></header>
+
+    <main class="jumbotron">
+
+        <content></content>
+
+    </main>
+
+    <div class="overlay"
+         ng-class="{ 'overlay-displayed': isSidebarOpened }"
+         ng-click="isSidebarOpened = false"></div>
+
+    <!--<footer></footer>-->
+
+    <!-- inject:html -->
+    <!-- endinject -->
+
+</body>
+</html>

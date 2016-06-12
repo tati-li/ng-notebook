@@ -1,0 +1,46 @@
+<article class="article-container well">
+    <form class="form-article"
+          role="form"
+          novalidate
+          name="NewArticleForm"
+          ng-submit="newArticleCtrl.CreateArticle($event)">
+        <div class="article-edit-container">
+            <div class="article-categories-title">Title:</div>
+            <input type="text" ng-model="newArticleCtrl.newTitle" name="TitleInput" required ng-maxlength="256" class="form-control" />
+            <div ng-messages="newArticleCtrl.$scope.NewArticleForm.$submitted && newArticleCtrl.$scope.NewArticleForm.TitleInput.$error">
+                <p class="text-danger" ng-message="required">Title {{newArticleCtrl.articleErrors.title.required}}</p>
+                <p class="text-danger" ng-message="maxlength">Title {{newArticleCtrl.articleErrors.title.maxlength}}</p>
+            </div>
+        </div>
+
+        <div class="article-edit-container">
+            <div class="article-categories-title">Content:</div>
+                <textarea
+                        type="text"
+                        ng-model="newArticleCtrl.newContent"
+                        ui-tinymce
+                        name="ContentArea"
+                        class="form-control"></textarea>
+        </div>
+
+        <!--<div class="article-edit-container">-->
+            <!--<div class="article-categories-title">Category:</div>-->
+            <!--<input type="text" ng-model="newCategory" name="CategoryInput" class="form-control" />-->
+        <!--</div>-->
+
+        <tags-list-typeahead selected-tags="newArticleCtrl.newTags"></tags-list-typeahead>
+        <div class="edit-btns well">
+            <button class="article-icon save-icon"
+               type="submit"
+               ng-click="newArticleCtrl.saveArticle()"
+               title="Save article">
+                <img src="/img/save-article.png" />
+            </button>
+            <button class="article-icon cancel-icon"
+               ng-click="newArticleCtrl.cancelArticleChanges()"
+               title="Cancel">
+                <img src="/img/cancel-edit-article.png" />
+            </button>
+        </div>
+    </form>
+</article>

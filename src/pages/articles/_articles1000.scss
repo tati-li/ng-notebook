@@ -1,0 +1,77 @@
+@media screen and (min-width: 1000px) {
+
+  .articles-preview {
+
+    .articles-date {
+      display: inline-block;
+      font-weight: bolder;
+      font-family: "Source Code Pro", Monaco, Menlo, Consolas, "Courier New", monospace;
+    }
+
+    .articles-export {
+
+    }
+
+    .articles-title {
+      padding-left: 20px;
+      font-size:    map-get($articlesFontsSizes, title);
+      line-height:  1.3;
+    }
+
+    .articles-content {
+      max-width: map-get(map-get($articlesSizes, preview), maxWidth);
+      margin: 0 auto;
+      max-height: 100px;
+      padding: 5px 0;
+      text-indent: map-get($articlesIndents, min);
+      font-size: map-get($articlesFontsSizes, content);
+      line-height: 1.5;
+    }
+
+    .articles-categories {
+
+      .articles-categories-title {
+        font-size:      map-get($articlesFontsSizes, categoriesTitle);
+      }
+
+      .articles-category {
+
+        .articles-category-name {
+          font-size:        map-get($articlesFontsSizes, categoryName);
+          padding:          map-get($articlesIndents, categories);
+        }
+
+      }
+
+    }
+
+    .articles-tags {
+
+      .articles-tags-title {
+        font-size:      map-get($articlesFontsSizes, tagsTitle);
+      }
+
+      .articles-tag {
+        font-size:        map-get($articlesFontsSizes, tag);
+        margin-right:     5px;
+        padding:          map-get($articlesIndents, tags);
+
+        .articles-tag-name {
+
+        }
+        .articles-tag-name:hover {
+
+        }
+
+      }
+
+    }
+
+
+    .delete-icon {
+      width: 35px;
+    }
+
+  }
+
+}

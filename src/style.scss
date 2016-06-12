@@ -1,0 +1,32 @@
+// Master stylsheet SCSS
+@charset 'utf-8';
+
+$icon-font-path: '/fonts/';
+$imgPath: '/img/';
+
+//@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+//@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/slate/bootstrap.min.css';
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Reset
+@import 'styles/reset';
+
+// Libs partials
+@import '../node_modules/ng-dialog/css/ngDialog.min.css';
+@import '../node_modules/ng-dialog/css/ngDialog-theme-plain.min.css';
+@import '../node_modules/ng-popover/dest/angular-popover.css';
+@import '../node_modules/angular-ui-bootstrap/ui-bootstrap-csp.css';
+
+// App partials
+@import 'styles/main';
+@import 'styles/partials';

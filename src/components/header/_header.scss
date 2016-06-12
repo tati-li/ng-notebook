@@ -1,0 +1,33 @@
+header {
+  //background: #a59675;
+
+  .header {
+    position: relative;
+
+    .header__menu {
+
+      position: absolute;
+      top: 30%;
+      right: 0;
+      text-align: right;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      svg {
+        width: 50px;
+        fill: #E0E0E0;
+      }
+
+    }
+
+  }
+}
+
+@import './header240';
+@import './header400';
+@import './header550';
+@import './header750';
+@import './header1000';
+@import './header1200';

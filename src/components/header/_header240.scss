@@ -1,0 +1,40 @@
+@media screen and (min-width: 1px) {
+  header {
+
+    padding: 1px 8%;
+
+    .header {
+
+      display: block;
+      margin: 0 auto;
+
+      .home-link {
+        height: 100px;
+
+        .left-book {
+          display: none;
+        }
+
+        .home-icon {
+          display: inline;
+          width: 16%;
+          margin: 5% 0 0 0;
+        }
+
+      }
+
+      .header__menu {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 0.1em;
+      }
+      .header__menu svg {
+        width: 32px;
+        fill: #E0E0E0;
+      }
+
+    }
+  }
+}

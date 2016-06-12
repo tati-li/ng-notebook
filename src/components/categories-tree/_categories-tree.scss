@@ -1,0 +1,63 @@
+.categories-tree {
+
+  margin-top: 35px;
+
+  .categories-title-wrapper {
+
+    .categories-title {
+      font-family: "Source Code Pro",Monaco,Menlo,Consolas,"Courier New",monospace;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: #99343C;
+      text-align: center;
+    }
+  }
+
+  .accordion-toggle {
+    outline: none;
+    text-decoration: none;    }
+
+  li {
+    list-style: none;
+    padding: 5px;
+    border-top: 1px ridge #46b8da;
+    background: transparent;
+
+    &.go-up {
+      border-top: none;
+      min-height: 25px;
+      text-align: center;
+      padding: 1.5px;
+
+      .glyphicon {
+        position: static;
+        float: none !important;
+        vertical-align: middle;
+      }
+
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: #46b8da;
+    }
+
+    .glyphicon {
+      top: 4px;
+    }
+
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+  }
+
+  li:last-child {
+    border-bottom: 1px ridge #46b8da;
+  }
+
+}
